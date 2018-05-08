@@ -1,0 +1,51 @@
+﻿@model MVCLearning.Models.ListStatus
+@{
+    ViewBag.Title = "TaskStatus";
+}
+
+<h2>TaskStatus</h2>
+
+
+<script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf8">
+    $(document).ready(function () {
+        debugger;
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("ListStatus", "TaskStatus")',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify({ id: 1 }),
+            dataType: "json",
+            success: function (data) { alert('Success'); }
+        });
+    });
+</script>
+
+<table id="tblTaskStatus" class="table" cellspacing="0" data-page-length='5'>
+    <thead background:color="#000">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@foreach (var row in ViewBag.Task)
+            {
+                <tr>
+                    <td>@row.Id</td>
+                    <td>@row.Name</td>
+                </tr>
+            }*@
+        @if (Model != null)
+        {
+            foreach (var item in Model.lstTaskStatus)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
