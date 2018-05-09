@@ -22,7 +22,7 @@ namespace MVCLearning.Controllers
         {
             //this is the new update
            //new udpate
-           //commit from IshanSharma05
+
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
